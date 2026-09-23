@@ -1,6 +1,6 @@
 # Juris Protocol documentation
 
-Generated from private JurisProtocol/public-docs main at `38becbccf17621294ac300c724c03889dec355bf`.
+Generated from private JurisProtocol/public-docs main at `b582d0bd364c797edd42ece9ced76bfb6be52936`.
 
 Website: https://docs.jurisprotocol.com/
 

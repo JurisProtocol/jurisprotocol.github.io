@@ -1,0 +1,831 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-09-23.1",
+  "reviewedAt": "2026-09-23",
+  "reviewedBy": "Juris documentation research",
+  "asset": {
+    "id": "juris",
+    "name": "Juris Protocol",
+    "symbol": "JURIS",
+    "origin": "juris-terra-cw20",
+    "aliases": [
+      "RAKOFF",
+      "Rakoff"
+    ]
+  },
+  "representations": [
+    {
+      "id": "juris-terra-cw20",
+      "network": "Terra Classic",
+      "chain": "cosmos:columbus-5",
+      "standard": "CW20",
+      "identifier": "terra1vhgq25vwuhdhn9xjll0rhl2s67jzw78a4g2t78y5kz89q9lsdskq2pxcj2",
+      "decimals": 6,
+      "lifecycle": "current",
+      "explorerUrl": "https://finder.terra.money/classic/address/terra1vhgq25vwuhdhn9xjll0rhl2s67jzw78a4g2t78y5kz89q9lsdskq2pxcj2",
+      "explorerLabel": "Explorer",
+      "sources": [
+        "terra"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "juris-osmosis-ibc",
+      "network": "Osmosis",
+      "chain": "cosmos:osmosis-1",
+      "standard": "IBC CW20",
+      "identifier": "ibc/46579C587A0B8CF8B0A1FF6B0EFA2082F11876578E47FC81A9CAAD31F424AF98",
+      "decimals": 6,
+      "lifecycle": "current",
+      "explorerUrl": "https://www.mintscan.io/osmosis/assets/ibc/46579C587A0B8CF8B0A1FF6B0EFA2082F11876578E47FC81A9CAAD31F424AF98",
+      "explorerLabel": "Explorer",
+      "sources": [
+        "osmosis"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "juris-solana-hyperlane",
+      "network": "Solana",
+      "chain": "solana:mainnet",
+      "standard": "Hyperlane · Token-2022",
+      "identifier": "HmKUJLZGTyFbEUX5sDisr8PERHjJRyoAkgZwc2YsbeRr",
+      "decimals": 6,
+      "lifecycle": "current",
+      "explorerUrl": "https://solscan.io/token/HmKUJLZGTyFbEUX5sDisr8PERHjJRyoAkgZwc2YsbeRr",
+      "explorerLabel": "Explorer",
+      "sources": [
+        "solana"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "juris-migaloo-ibc",
+      "network": "Migaloo",
+      "chain": "cosmos:migaloo-1",
+      "standard": "IBC CW20",
+      "identifier": "ibc/44C29C91F202E20C8E28DFB1FA89B725C54171CD77B8948836C72E7A97E4A018",
+      "decimals": 6,
+      "lifecycle": "deprecated",
+      "explorerUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/assetlist.json",
+      "explorerLabel": "Registry",
+      "sources": [
+        "migaloo"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "juris-bsc-wormhole",
+      "network": "BNB Smart Chain",
+      "chain": "eip155:56",
+      "standard": "Wormhole · BEP-20",
+      "identifier": "0x2Fd37A5f059AE7cc51e4993f41cD72Dde703Cbe8",
+      "decimals": 6,
+      "lifecycle": "deprecated",
+      "explorerUrl": "https://bscscan.com/token/0x2Fd37A5f059AE7cc51e4993f41cD72Dde703Cbe8",
+      "explorerLabel": "Explorer",
+      "sources": [
+        "bsc"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "juris-solana-wormhole",
+      "network": "Solana",
+      "chain": "solana:mainnet",
+      "standard": "Wormhole · SPL Token",
+      "identifier": "8Hic4Ag1J68B7brZJyJTBYrx4wvuGNfetertS4qjpgs",
+      "decimals": 6,
+      "lifecycle": "deprecated",
+      "explorerUrl": "https://solscan.io/token/8Hic4Ag1J68B7brZJyJTBYrx4wvuGNfetertS4qjpgs",
+      "explorerLabel": "Explorer",
+      "sources": [
+        "old-solana"
+      ],
+      "checkedAt": "2026-09-23"
+    }
+  ],
+  "routes": [
+    {
+      "id": "terra-osmosis",
+      "source": "juris-terra-cw20",
+      "destination": "juris-osmosis-ibc",
+      "provider": "IBC",
+      "lifecycle": "current",
+      "directions": {
+        "outbound": "unverified",
+        "return": "unverified"
+      },
+      "note": "Terra Classic channel-108 ↔ Osmosis channel-78488. Channel observed open; successful delivery in both directions has not been confirmed.",
+      "sources": [
+        "osmosis"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "terra-solana",
+      "source": "juris-terra-cw20",
+      "destination": "juris-solana-hyperlane",
+      "provider": "Hyperlane",
+      "lifecycle": "current",
+      "directions": {
+        "outbound": "unverified",
+        "return": "unverified"
+      },
+      "note": "Uses the current Token-2022 mint. Successful delivery in both directions has not been confirmed.",
+      "sources": [
+        "solana"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "terra-migaloo",
+      "source": "juris-terra-cw20",
+      "destination": "juris-migaloo-ibc",
+      "provider": "IBC",
+      "lifecycle": "deprecated",
+      "directions": {
+        "outbound": "unverified",
+        "return": "unverified"
+      },
+      "note": "Migaloo is deprecated. The historical route used Terra Classic channel-87 and Migaloo channel-114.",
+      "sources": [
+        "migaloo"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "terra-bsc-wormhole",
+      "source": "juris-terra-cw20",
+      "destination": "juris-bsc-wormhole",
+      "provider": "Wormhole",
+      "lifecycle": "deprecated",
+      "directions": {
+        "outbound": "unverified",
+        "return": "unverified"
+      },
+      "note": "Terra Classic outgoing messaging ended after July 14, 2025.",
+      "sources": [
+        "wormhole"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "terra-solana-wormhole",
+      "source": "juris-terra-cw20",
+      "destination": "juris-solana-wormhole",
+      "provider": "Wormhole",
+      "lifecycle": "deprecated",
+      "directions": {
+        "outbound": "unverified",
+        "return": "unverified"
+      },
+      "note": "Terra Classic outgoing messaging ended after July 14, 2025.",
+      "sources": [
+        "wormhole"
+      ],
+      "checkedAt": "2026-09-23"
+    }
+  ],
+  "markets": [
+    {
+      "id": "weex",
+      "venue": "WEEX",
+      "pair": "JURIS/USDT",
+      "network": "Exchange",
+      "representations": [],
+      "url": "https://www.weex.com/spot/JURIS-USDT",
+      "sources": [
+        "weex",
+        "coingecko"
+      ],
+      "note": "Recent trades reported. Check supported deposit and withdrawal networks on WEEX.",
+      "section": "recent",
+      "pool": null,
+      "lifecycle": "current",
+      "operations": {
+        "trading": "observed",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": null
+    },
+    {
+      "id": "raydium",
+      "venue": "Raydium",
+      "pair": "JURIS/USDC",
+      "network": "Solana",
+      "representations": [
+        "juris-solana-hyperlane"
+      ],
+      "url": "https://raydium.io/swap/?inputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&outputMint=HmKUJLZGTyFbEUX5sDisr8PERHjJRyoAkgZwc2YsbeRr",
+      "sources": [
+        "raydium"
+      ],
+      "note": "Recent trades and nonzero reserves reported. Uses the current Hyperlane mint.",
+      "section": "recent",
+      "pool": "8JP68n5Zrzts3EEAg7fASZdUpNQdp2hQ9N4V9CuuTH3g",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "observed",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+    },
+    {
+      "id": "lsf",
+      "venue": "LSF Exchange",
+      "pair": "JURIS/USDC",
+      "network": "Terra Classic",
+      "representations": [
+        "juris-terra-cw20"
+      ],
+      "url": "https://luncswap.fun/trade/luncswap/juris-usdc",
+      "sources": [
+        "lsf"
+      ],
+      "note": "Pool identified; current reserves not confirmed.",
+      "section": "pools",
+      "pool": "terra1lk7fsgfs4phnh6npa89q2uweu4yytmg9cpacgpmuvwr8rmc9gz5s5vak60",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [
+        {
+          "id": "vyntrex",
+          "label": "Vyntrex",
+          "url": "https://vyntrex.io/market/columbus-5/terra1lk7fsgfs4phnh6npa89q2uweu4yytmg9cpacgpmuvwr8rmc9gz5s5vak60"
+        }
+      ],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": "ibc/0BB9D8513E8E8E9AE6A9D211D9136E6DA42288DDE6CFAA453A150A4566054DC5"
+    },
+    {
+      "id": "terraport-juris-lunc",
+      "venue": "Terraport",
+      "pair": "JURIS/LUNC",
+      "network": "Terra Classic",
+      "representations": [
+        "juris-terra-cw20"
+      ],
+      "url": "https://finder.terra.money/classic/address/terra13w6cruzc0xkdhpmrnspr5j282x3wyx0m4f6kjnr65tpq63usn8eqp5emy4",
+      "sources": [
+        "coingecko"
+      ],
+      "note": "Ticker flagged for a price or volume anomaly.",
+      "section": "pools",
+      "pool": "terra13w6cruzc0xkdhpmrnspr5j282x3wyx0m4f6kjnr65tpq63usn8eqp5emy4",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": "uluna"
+    },
+    {
+      "id": "terraport-juris-terra",
+      "venue": "Terraport",
+      "pair": "JURIS/TERRA",
+      "network": "Terra Classic",
+      "representations": [
+        "juris-terra-cw20"
+      ],
+      "url": "https://finder.terra.money/classic/address/terra18lzl6drsnyr6m9mplfw2fkr8kw6gsvar7wr8wzqgcx7xva58dhpsq7jgdy",
+      "sources": [
+        "terraport-juris-terra"
+      ],
+      "note": "Historical pool record; current reserves not confirmed.",
+      "section": "pools",
+      "pool": "terra18lzl6drsnyr6m9mplfw2fkr8kw6gsvar7wr8wzqgcx7xva58dhpsq7jgdy",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": null
+    },
+    {
+      "id": "garuda-juris-lunc",
+      "venue": "Garuda",
+      "pair": "JURIS/LUNC",
+      "network": "Terra Classic",
+      "representations": [
+        "juris-terra-cw20"
+      ],
+      "url": "https://finder.terra.money/classic/address/terra1f6pxjjtemwhrypv8y52yv2j98d8j0jlwkp455q0fu8qenlctpy8qh6h74l",
+      "sources": [
+        "coingecko"
+      ],
+      "note": "Ticker flagged stale and anomalous.",
+      "section": "pools",
+      "pool": "terra1f6pxjjtemwhrypv8y52yv2j98d8j0jlwkp455q0fu8qenlctpy8qh6h74l",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": "uluna"
+    },
+    {
+      "id": "garuda-do-juris",
+      "venue": "Garuda",
+      "pair": "DO/JURIS",
+      "network": "Terra Classic",
+      "representations": [
+        "juris-terra-cw20"
+      ],
+      "url": "https://finder.terra.money/classic/address/terra1exa7wwr00j9y2lducx4arlz6z0lwt5mlel0tpvsfygrcxfdl9l5su2jpmv",
+      "sources": [
+        "coingecko"
+      ],
+      "note": "Ticker flagged stale.",
+      "section": "pools",
+      "pool": "terra1exa7wwr00j9y2lducx4arlz6z0lwt5mlel0tpvsfygrcxfdl9l5su2jpmv",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": null
+    },
+    {
+      "id": "garuda-grdx-juris",
+      "venue": "Garuda",
+      "pair": "GRDX/JURIS",
+      "network": "Terra Classic",
+      "representations": [
+        "juris-terra-cw20"
+      ],
+      "url": "https://finder.terra.money/classic/address/terra14mwaykq2k2z77xlqwn78x782mp5x37f556ywr4ydvm8urspgazaqqcpyh8",
+      "sources": [
+        "coingecko"
+      ],
+      "note": "Ticker flagged stale.",
+      "section": "pools",
+      "pool": "terra14mwaykq2k2z77xlqwn78x782mp5x37f556ywr4ydvm8urspgazaqqcpyh8",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": null
+    },
+    {
+      "id": "osmosis-3116",
+      "venue": "Osmosis",
+      "pair": "JURIS/OSMO",
+      "network": "Osmosis",
+      "representations": [
+        "juris-osmosis-ibc"
+      ],
+      "url": "https://app.osmosis.zone/pool/3116",
+      "sources": [
+        "osmosis-pools"
+      ],
+      "note": "Nonzero balances and active tick liquidity observed.",
+      "section": "pools",
+      "pool": "3116",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": "uosmo"
+    },
+    {
+      "id": "osmosis-3115",
+      "venue": "Osmosis",
+      "pair": "JURIS/ATOM",
+      "network": "Osmosis",
+      "representations": [
+        "juris-osmosis-ibc"
+      ],
+      "url": "https://app.osmosis.zone/pool/3115",
+      "sources": [
+        "osmosis-pools"
+      ],
+      "note": "Small balances and active tick liquidity observed.",
+      "section": "pools",
+      "pool": "3115",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
+    },
+    {
+      "id": "osmosis-1912",
+      "venue": "Osmosis",
+      "pair": "JURIS/OSMO",
+      "network": "Osmosis",
+      "representations": [
+        "juris-osmosis-ibc"
+      ],
+      "url": "https://app.osmosis.zone/pool/1912",
+      "sources": [
+        "osmosis-pools"
+      ],
+      "note": "Dust balances; no active tick liquidity observed.",
+      "section": "pools",
+      "pool": "1912",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": "uosmo"
+    },
+    {
+      "id": "osmosis-3113",
+      "venue": "Osmosis",
+      "pair": "JURIS/ATOM",
+      "network": "Osmosis",
+      "representations": [
+        "juris-osmosis-ibc"
+      ],
+      "url": "https://app.osmosis.zone/pool/3113",
+      "sources": [
+        "osmosis-pools"
+      ],
+      "note": "Empty balances; no active tick liquidity observed.",
+      "section": "pools",
+      "pool": "3113",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
+    },
+    {
+      "id": "osmosis-3114",
+      "venue": "Osmosis",
+      "pair": "JURIS/ATOM",
+      "network": "Osmosis",
+      "representations": [
+        "juris-osmosis-ibc"
+      ],
+      "url": "https://app.osmosis.zone/pool/3114",
+      "sources": [
+        "osmosis-pools"
+      ],
+      "note": "Dust balances; no active tick liquidity observed.",
+      "section": "pools",
+      "pool": "3114",
+      "lifecycle": "current",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
+    },
+    {
+      "id": "biconomy",
+      "venue": "Biconomy",
+      "pair": "JURIS/USDT",
+      "network": "Exchange",
+      "representations": [],
+      "url": "https://biconomy.zendesk.com/hc/en-us/articles/60730411054617-Biconomy-com-s-Notice-of-Delisting-JURIS-Spot-Trading-Pairs",
+      "sources": [
+        "biconomy"
+      ],
+      "note": "Delisted August 10, 2026. The notice schedules withdrawals to close October 30, 2026 at 00:00 UTC.",
+      "section": "historical",
+      "pool": null,
+      "lifecycle": "deprecated",
+      "operations": {
+        "trading": "delisted",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": null
+    },
+    {
+      "id": "ascendex",
+      "venue": "AscendEX",
+      "pair": "JURIS/USDT",
+      "network": "Exchange",
+      "representations": [],
+      "url": "https://ascendex.com/en/announcement/detail/140020-juris-protocol-juris-initial-listing-on-ascendex-trade-now",
+      "sources": [
+        "ascendex",
+        "ascendex-funding"
+      ],
+      "note": "Deposit and withdrawal suspension announced May 5, 2026. Restoration and current trading not confirmed.",
+      "section": "historical",
+      "pool": null,
+      "lifecycle": "unverified",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "suspension-notice",
+        "withdrawals": "suspension-notice"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": null
+    },
+    {
+      "id": "azbit",
+      "venue": "Azbit",
+      "pair": "JURIS/USDC",
+      "network": "Exchange",
+      "representations": [],
+      "url": "https://medium.com/azbit-news/listing-alert-juris-protocol-juris-92c4b8f1962e",
+      "sources": [
+        "azbit"
+      ],
+      "note": "Historical listing confirmed; current trading, deposits and withdrawals not confirmed.",
+      "section": "historical",
+      "pool": null,
+      "lifecycle": "unverified",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": null
+    },
+    {
+      "id": "btcc",
+      "venue": "BTCC",
+      "pair": "JURIS/USDT",
+      "network": "Exchange",
+      "representations": [],
+      "url": "https://www.btcc.com/en-US/academy/crypto-wiki/altcoin/introducing-juris-protocol",
+      "sources": [
+        "btcc"
+      ],
+      "note": "Historical listing confirmed; current trading, deposits and withdrawals not confirmed.",
+      "section": "historical",
+      "pool": null,
+      "lifecycle": "unverified",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": null
+    },
+    {
+      "id": "whitewhale",
+      "venue": "White Whale",
+      "pair": "JURIS · quote unconfirmed",
+      "network": "Migaloo",
+      "representations": [
+        "juris-migaloo-ibc"
+      ],
+      "url": "https://coinhall.org/migaloo/migaloo1jnhrd5elzt6sdp4av4c07tzkt5nhjvvt23t7lmnva34lqh30pdyqt7fld4",
+      "sources": [
+        "whitewhale"
+      ],
+      "note": "Deprecated Migaloo representation. Historical pool record.",
+      "section": "historical",
+      "pool": "migaloo1jnhrd5elzt6sdp4av4c07tzkt5nhjvvt23t7lmnva34lqh30pdyqt7fld4",
+      "lifecycle": "deprecated",
+      "operations": {
+        "trading": "unverified",
+        "deposits": "unverified",
+        "withdrawals": "unverified"
+      },
+      "entryLinks": [],
+      "checkedAt": "2026-09-23",
+      "quoteIdentifier": null
+    }
+  ],
+  "resources": [
+    {
+      "id": "coingecko",
+      "label": "CoinGecko",
+      "purpose": "Token prices and market directory",
+      "url": "https://www.coingecko.com/en/coins/juris-protocol",
+      "sources": [
+        "coingecko"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "defillama",
+      "label": "DefiLlama",
+      "purpose": "Protocol TVL and lending data",
+      "url": "https://defillama.com/protocol/juris-protocol",
+      "sources": [
+        "defillama"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "cmc",
+      "label": "CoinMarketCap DexScan",
+      "purpose": "Current Solana token",
+      "url": "https://dex.coinmarketcap.com/token/solana/HmKUJLZGTyFbEUX5sDisr8PERHjJRyoAkgZwc2YsbeRr/",
+      "sources": [
+        "cmc"
+      ],
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "dexscreener",
+      "label": "DEX Screener",
+      "purpose": "Current Raydium pool",
+      "url": "https://dexscreener.com/solana/8jp68n5zrzts3eeag7faszdupnqdp2hq9n4v9cuuth3g",
+      "sources": [
+        "raydium"
+      ],
+      "checkedAt": "2026-09-23"
+    }
+  ],
+  "sources": [
+    {
+      "id": "terra",
+      "title": "Terra Classic token contract",
+      "url": "https://finder.terra.money/classic/address/terra1vhgq25vwuhdhn9xjll0rhl2s67jzw78a4g2t78y5kz89q9lsdskq2pxcj2",
+      "checkedAt": "2026-09-23",
+      "fact": "CW20 token_info: JURIS, six decimals."
+    },
+    {
+      "id": "osmosis",
+      "title": "Osmosis asset registry",
+      "url": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/assetlist.json",
+      "checkedAt": "2026-09-23",
+      "fact": "IBC denomination and origin trace; LCD channel observed open."
+    },
+    {
+      "id": "migaloo",
+      "title": "Migaloo asset registry",
+      "url": "https://raw.githubusercontent.com/cosmos/chain-registry/master/migaloo/assetlist.json",
+      "checkedAt": "2026-09-23",
+      "fact": "Historical IBC denomination and RAKOFF alias."
+    },
+    {
+      "id": "solana",
+      "title": "Juris Solana metadata",
+      "url": "https://raw.githubusercontent.com/JurisProtocol/assets/main/metadata-juris.json",
+      "checkedAt": "2026-09-23",
+      "fact": "Current Hyperlane mint; Token-2022 ownership confirmed by Solana RPC."
+    },
+    {
+      "id": "wormhole",
+      "title": "Wormhole network sunset",
+      "url": "https://wormhole.com/blog/updates-to-wormholes-supported-networks",
+      "checkedAt": "2026-09-23",
+      "fact": "Terra Classic outgoing messages ended after July 14, 2025."
+    },
+    {
+      "id": "bsc",
+      "title": "Historical BSC token",
+      "url": "https://bscscan.com/token/0x2Fd37A5f059AE7cc51e4993f41cD72Dde703Cbe8",
+      "checkedAt": "2026-09-23",
+      "fact": "RPC nativeContract and chainId map to the original Terra CW20."
+    },
+    {
+      "id": "old-solana",
+      "title": "Historical Solana mint",
+      "url": "https://solscan.io/token/8Hic4Ag1J68B7brZJyJTBYrx4wvuGNfetertS4qjpgs",
+      "checkedAt": "2026-09-23",
+      "fact": "Origin-derived Wormhole mint; initialized SPL account confirmed by RPC."
+    },
+    {
+      "id": "weex",
+      "title": "WEEX listing notice",
+      "url": "https://www.weex.com/help/articles/hwhk6ihc38wgg4xh49k6mt73",
+      "checkedAt": "2026-09-23",
+      "fact": "JURIS/USDT trading opened August 24, 2026."
+    },
+    {
+      "id": "biconomy",
+      "title": "Biconomy delisting notice",
+      "url": "https://biconomy.zendesk.com/hc/en-us/articles/60730411054617-Biconomy-com-s-Notice-of-Delisting-JURIS-Spot-Trading-Pairs",
+      "checkedAt": "2026-09-23",
+      "fact": "Delisted August 10, 2026; announced withdrawal closure October 30, 2026 at 00:00 UTC."
+    },
+    {
+      "id": "ascendex",
+      "title": "AscendEX listing",
+      "url": "https://ascendex.com/en/announcement/detail/140020-juris-protocol-juris-initial-listing-on-ascendex-trade-now",
+      "checkedAt": "2026-09-23",
+      "fact": "Historical JURIS/USDT listing."
+    },
+    {
+      "id": "ascendex-funding",
+      "title": "AscendEX notices",
+      "url": "https://gray.ascendex.com/en/support/sections/8-announcements/5-important-notice",
+      "checkedAt": "2026-09-23",
+      "fact": "May 5, 2026 deposit and withdrawal suspension notice; restoration not confirmed."
+    },
+    {
+      "id": "azbit",
+      "title": "Azbit listing announcement",
+      "url": "https://medium.com/azbit-news/listing-alert-juris-protocol-juris-92c4b8f1962e",
+      "checkedAt": "2026-09-23",
+      "fact": "Historical JURIS/USDC listing, November 25, 2025."
+    },
+    {
+      "id": "btcc",
+      "title": "BTCC token article",
+      "url": "https://www.btcc.com/en-US/academy/crypto-wiki/altcoin/introducing-juris-protocol",
+      "checkedAt": "2026-09-23",
+      "fact": "Historical JURIS/USDT listing."
+    },
+    {
+      "id": "coingecko",
+      "title": "CoinGecko markets",
+      "url": "https://www.coingecko.com/en/coins/juris-protocol",
+      "checkedAt": "2026-09-23",
+      "fact": "Dated ticker observations; stale and anomalous feeds are not execution guarantees."
+    },
+    {
+      "id": "raydium",
+      "title": "Solana pool data",
+      "url": "https://api.dexscreener.com/token-pairs/v1/solana/HmKUJLZGTyFbEUX5sDisr8PERHjJRyoAkgZwc2YsbeRr",
+      "checkedAt": "2026-09-23",
+      "fact": "Current Raydium pool, matching token mints, reserves and recent trades."
+    },
+    {
+      "id": "osmosis-pools",
+      "title": "Osmosis pools",
+      "url": "https://sqs.osmosis.zone/pools",
+      "checkedAt": "2026-09-23",
+      "fact": "Five pools matched the exact JURIS denomination in the dated response."
+    },
+    {
+      "id": "lsf",
+      "title": "LSF JURIS market",
+      "url": "https://luncswap.fun/trade/luncswap/juris-usdc",
+      "checkedAt": "2026-09-23",
+      "fact": "Project market destination; pool identity cross-checked against application records."
+    },
+    {
+      "id": "defillama",
+      "title": "DefiLlama protocol data",
+      "url": "https://defillama.com/protocol/juris-protocol",
+      "checkedAt": "2026-09-23",
+      "fact": "Protocol analytics, not a token exchange listing."
+    },
+    {
+      "id": "cmc",
+      "title": "CoinMarketCap DexScan",
+      "url": "https://dex.coinmarketcap.com/token/solana/HmKUJLZGTyFbEUX5sDisr8PERHjJRyoAkgZwc2YsbeRr/",
+      "checkedAt": "2026-09-23",
+      "fact": "Project-linked Solana DexScan destination; not a full currency listing claim."
+    },
+    {
+      "id": "terraport-juris-terra",
+      "title": "Historical Terraport pool record",
+      "url": "https://juris-protocol.gitbook.io/juris-protocol/juris-protocol/financials-and-tokenomics/where-to-buy",
+      "checkedAt": "2026-09-23",
+      "fact": "Historical pool link, cross-checked against application records."
+    },
+    {
+      "id": "whitewhale",
+      "title": "Historical Migaloo market",
+      "url": "https://coinhall.org/migaloo/migaloo1jnhrd5elzt6sdp4av4c07tzkt5nhjvvt23t7lmnva34lqh30pdyqt7fld4",
+      "checkedAt": "2026-09-23",
+      "fact": "Historical pool record; quote asset not confirmed."
+    }
+  ]
+}
